@@ -1,0 +1,14 @@
+{
+    "name": "com.bernique.bernique-utils.Runtime",
+    "rootNamespace": "",
+    "references": ["com.bernique.bernique-utils.Toolbox"],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
