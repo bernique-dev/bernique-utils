@@ -1,7 +1,8 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class MinMax {
 
     public float min {
@@ -24,4 +25,10 @@ public class MinMax {
         }
     }
     public float m_max;
+
+    public MinMax(float _min, float _max) {
+        min = _min;
+        max = _max;
+    }
+
 }
