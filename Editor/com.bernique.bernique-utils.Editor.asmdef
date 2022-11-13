@@ -1,7 +1,7 @@
 {
     "name": "com.bernique.bernique-utils.Editor",
     "rootNamespace": "",
-    "references": [],
+    "references": ["com.bernique.bernique-utils.Toolbox"],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": true,
