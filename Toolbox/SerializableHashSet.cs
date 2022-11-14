@@ -2,27 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//  Source: https://stackoverflow.com/questions/50054786/how-to-serialise-hashset-for-usage-in-inspector
 
 [System.Serializable]
-public class SerializableHashSet<T> : HashSet<T>, ISerializationCallbackReceiver {
-    public List<T> values = new List<T>();
+public class SerializableHashSet<T> : ScriptableObject, ISerializationCallbackReceiver {
+    private HashSet<T> hashSet = new HashSet<T>();
 
-    public void OnBeforeSerialize() {
-        var cur = new HashSet<T>(values);
+    [SerializeField]
+    private List<T> serializableItems;
 
-        foreach (var val in this) {
-            if (!cur.Contains(val)) {
-                values.Add(val);
-            }
-        }
+    void ISerializationCallbackReceiver.OnBeforeSerialize() {
+        this.serializableItems = new List<T>(this.hashSet);
+        this.hashSet = null;
     }
 
-    public void OnAfterDeserialize() {
-        this.Clear();
-
-        foreach (var val in values) {
-            this.Add(val);
+    void ISerializationCallbackReceiver.OnAfterDeserialize() {
+        foreach (T item in this.serializableItems) {
+            _ = this.hashSet.Add(item);
         }
+
+        this.serializableItems = null;
     }
+
+    public bool Add(T item) => this.hashSet.Add(item);
+
+    public bool Contains(T item) => this.hashSet.Contains(item);
 }
