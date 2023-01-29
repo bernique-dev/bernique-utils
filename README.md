@@ -1,4 +1,4 @@
-# bernique-utils
+# Bernique Utils
 
 Small useful scripts for game dev.
 
