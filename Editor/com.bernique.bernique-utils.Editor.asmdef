@@ -2,7 +2,9 @@
     "name": "com.bernique.bernique-utils.Editor",
     "rootNamespace": "",
     "references": ["com.bernique.bernique-utils.Toolbox"],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": true,
     "overrideReferences": false,
